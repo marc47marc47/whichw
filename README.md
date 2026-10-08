@@ -3,19 +3,19 @@ can compile in windows, linux and macos
 usage like linux which command
 
 ```bash
-  rwhich ls
-  rwhich openssl
-  rwhich openssl.exe
-  rwhich code.exe
+  whichw ls
+  whichw openssl
+  whichw openssl.exe
+  whichw code.exe
 ```
 
 
-Usage: which-rs [options] command...
+Usage: whichw [options] command...
 
-       rwhich ls
-       rwhich openssl
-       rwhich opewnssl.exe
-       rwhich code.exe
+       whichw ls
+       whichw openssl
+       whichw opewnssl.exe
+       whichw code.exe
 
 Options:
 

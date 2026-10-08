@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $name = "whichw-${{ github.ref_name }}-x86_64-pc-windows-msvc"
+          New-Item -ItemType Directory -Path $name | Out-Null
+          Copy-Item target/release/whichw.exe $name/
+          Copy-Item README.md, LICENSE $name/
+          Compress-Archive -Path $name -DestinationPath "$name.zip"
+          echo "ASSET=$name.zip" >> $env:GITHUB_ENV
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ASSET }}
+          generate_release_notes: true
