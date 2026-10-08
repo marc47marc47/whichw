@@ -4,6 +4,9 @@ fn main() {
     // Get command-line arguments, skipping the program name
     let args: Vec<String> = env::args().skip(1).collect();
     if args.is_empty() || args.contains(&String::from("-h")) || args.contains(&String::from("--help")) {
+        eprintln!("whichw - locate a command in PATH (a cross-platform `which`).");
+        eprintln!("Prints the full path of each command found; works on Windows, Linux and macOS.");
+        eprintln!("");
         eprintln!("Usage: whichw [options] command...");
         eprintln!("       whichw ls");
         eprintln!("       whichw openssl");

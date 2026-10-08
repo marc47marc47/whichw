@@ -10,6 +10,9 @@ usage like linux which command
 ```
 
 
+whichw - locate a command in PATH (a cross-platform `which`).
+Prints the full path of each command found; works on Windows, Linux and macOS.
+
 Usage: whichw [options] command...
 
        whichw ls
