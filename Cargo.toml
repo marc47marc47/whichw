@@ -1,6 +1,6 @@
 [package]
 name = "whichw"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 authors = ["MarcXiao <marc47marc47@gmail.com>"]
 description = "like linux which, can find where the exec command is"
